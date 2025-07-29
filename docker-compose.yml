@@ -1,0 +1,20 @@
+services:
+  backend:
+    image: stasya1/example-backend
+    build:
+      context: "server"
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    env_file:
+      - "server/.env"
+
+  frontend:
+    image: stasya1/example-frontend
+    build:
+      context: "second-server"
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
