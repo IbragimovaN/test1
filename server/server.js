@@ -9,7 +9,8 @@ const PORT = 3002;
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://frontend:3000"],
+    origin: true,
+    credentials: true,
   })
 );
 
